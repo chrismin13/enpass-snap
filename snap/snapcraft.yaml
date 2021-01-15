@@ -1,15 +1,37 @@
-name: my-snap-name # you probably want to 'snapcraft register <name>'
-version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
-summary: Single-line elevator pitch for your amazing snap # 79 char long summary
-description: |
-  This is my-snap's description. You have a paragraph or two to tell the
-  most important story about your snap. Keep it under 100 words though,
-  we live in tweetspace and your description wants to look good in the snap
-  store.
+name: enpass
+base: core18
+version: '6.5.1.723'
+summary: Unofficial Snap for the Enpass Password Manager
+description: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details. Free for Mac, Windows and Linux.
 
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: classic # use 'strict' once you have the right plugs and slots
+
+apps:
+  enpass:
+    command: opt/enpass/Enpass
+    desktop: usr/share/applications/enpass.desktop
+#    extensions: [gnome-3-34]
+    plugs:
+      - home
+      - audio-playback
+      - network
+      - unity7
+      - network-bind
 
 parts:
-  my-part:
-    # See 'snapcraft plugins'
-    plugin: nil
+  enpass-deb:
+    plugin: dump
+    source: "https://apt.enpass.io/pool/main/e/enpass/enpass_$SNAPCRAFT_PROJECT_VERSION_amd64.deb"
+    source-type: deb
+    stage-packages:
+      - libxss1
+      - libxkbcommon-x11-0
+    override-prime: |
+      snapcraftctl prime
+      sed -i 's|Icon=.*|Icon=${SNAP}/meta/gui/enpass.svg|g' $SNAPCRAFT_PRIME/usr/share/applications/enpass.desktop
+  snap-gui-folder:
+    plugin: dump
+    source: gui/
+    organize:
+      enpass.svg: meta/gui/

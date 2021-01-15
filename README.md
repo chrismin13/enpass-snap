@@ -1,10 +1,10 @@
 <h1 align="center">
-  <img src="https://avatars1.githubusercontent.com/u/29598503?v=3&s=256" alt="[Project]">
+  <img src="https://discussion.enpass.io/uploads/monthly_2018_12/icon_256x256.png.4f45e722f144f28e98b6902ac897555a.png" alt="Enpass">
   <br />
-  [Project]
+  Enpass
 </h1>
 
-<p align="center"><b>This is the snap for [Project]</b>, <i>“Single-line elevator pitch for your amazing snap”</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
+<p align="center"><b>This is the snap for Enpass</b>, <i>“Offline Password Manager and Secure Vault”</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
 distributions.</p>
 
 <!-- Uncomment and modify this when you are provided a build status badge
@@ -21,7 +21,11 @@ distributions.</p>
 
 ## Install
 
-    sudo snap install my-snap-name
+    git clone https://github.com/chrismin13/enpass-snap.git # Clone the repo
+    cd enpass-snap/snap/ # Enter the build directory
+    sudo snap install snapcraft # If you don't already have snapcraft installed
+    snapcraft # Build
+    sudo snap install --dangerous --classic enpass_VERSION_NUMBER_amd64.snap
 
 <!-- Uncomment and modify this when your snap is available on the store
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/my-snap-name)
@@ -37,13 +41,13 @@ distributions.</p>
 Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) 
 are working to land snap install documentation and
 the [snapcraft.yaml](https://github.com/snapcrafters/fork-and-rename-me/blob/master/snap/snapcraft.yaml)
-upstream so [Project] can authoritatively publish future releases.
+upstream so Enpass can authoritatively publish future releases.
 
   - [x] Click the green "Use this template" button above to create a new repository based on this template
-  - [ ] Give the newly created repository a sensible name, like `godzilla-snap` if you're snapping the Godzilla software
-  - [ ] Update the description of the repository
-  - [ ] Update logos and references to `[Project]` and `[my-snap-name]`
-  - [ ] Create a snap that runs in `devmode`
+  - [x] Give the newly created repository a sensible name, like `godzilla-snap` if you're snapping the Godzilla software
+  - [x] Update the description of the repository
+  - [ ] Update logos and references to `Enpass` and `[my-snap-name]`
+  - [x] Create a snap that runs in `devmode`
   - [ ] Register the snap in the store, **using the preferred upstream name**
   - [ ] Add a screenshot to this `README.md`
   - [ ] Publish the `devmode` snap in the Snap store edge channel
