@@ -38,5 +38,6 @@ jobs:
       # Check and print version
       - name: Run a multi-line script
         run: |
-          echo Test
-          apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g'
+          latest=$( apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g' )
+          echo The latest Enpass version on the Debian Repository is $latest
+          ls
