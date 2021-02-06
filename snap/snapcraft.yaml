@@ -2,7 +2,56 @@ name: enpass-chrismin13-test
 base: core18
 version: '6.5.1.723'
 summary: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details.
-description: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details.
+description: |
+  Our everyday life is filled with too many passwords and various types of credentials, right? So, what are you doing to manage it?
+  
+  - Using the same password everywhere? … Stop it NOW!
+  - Writing them in notes or encrypted excel? … Copy/paste is lethargic.
+  - Saving them in browsers? … Sorry, no attachments!
+  - Using an online password manager? … Are they safe from hackers??
+  
+  Use Enpass to securely organize everything at one place. And the best thing, none of your Enpass data is stored on our servers, instead, it is stored locally on your device and you can sync through your own trusted cloud account, all ENCRYPTED!!
+  
+  Don’t forget to evaluate Enpass using the FULL-FEATURED desktop version. IT’S ABSOLUTELY FREE.
+  
+  HIGHLIGHTS OF ENPASS
+  
+  * ✔️Offline- No data on our servers.
+  * ✔️Stores Everything- Secure vault for your logins, credit cards, bank accounts, licenses, attachments or any other sort of information.
+  * ✔️Unbeatable Security- 100% data is encrypted by AES-256 bit, using open-source SQLCIPHER Engine.
+  * ✔️Data Synchronization- Syncs data through iCloud, Dropbox, WebDAV, Google Drive, OneDrive and Box.
+  * ✔️Cross-platform- Consistently designed for all mobile and desktop platforms.
+  * ✔️Multiple-vaults- Separate your personal, family and work data in different vaults.
+  * ✔️Auto-filling- Autofills right into the apps, Chrome and other browsers with just one tap.
+  * ✔️Biometric authentication- Supports use of Fingerprints/Biometrics for quick unlock to access information.
+  * ✔️Strong Password Generation- Built-in password generator for unique and strong passwords.
+  * ✔️Password Audit- Keeps a check on your weak, old and pwned passwords.
+  * ✔️Dark theme: Turn your app to a darker theme, making it easy on your eyes.
+  * ✔️80+ Templates- Save any kind of information through well-organized templates.
+  * ✔️Import from others- You can freely import your passwords saved in some other software, to Enpass using the free desktop version.
+  
+  FOR ENPASS, SECURITY IS PARAMOUNT
+  
+  * ♦Military-grade encryption- We use SQLCIPHER, a transparent, widely accepted and open-source SQLite extension for 100% encryption of your data using AES-256 with a key derived from 100,000 iterations of PBKDF2-HMAC-SHA256.
+  * ♦Zero-Knowledge security architecture- None of your data is stored on our servers, so as a developer, we have no knowledge about your passwords or data.
+  * ♦Keyfile as a second factor- Along with master password you can also use a keyfile to encrypt your data.
+  * ♦Password Audit- Stay safe with the built-in password auditor that keeps a regular check on your pwned, weak and old passwords.
+  
+  SYNC, BACKUP & RESTORE
+  * ♦Cloud Synchronization- With Enpass, you can choose to sync your data across devices through your account on iCloud, Dropbox, Google Drive, OneDrive, Box or WebDAV (ownCloud, NextCloud etc).
+  * ♦Encrypted Backup: Backup your database over Wi-Fi or save a local copy to restore later.
+  * SIMPLIFYING DIGITAL LIFE
+  * ♦Securely autofills Credit card details while shopping online.
+  * ♦Multiple-vaults- Collaborate with Family and Team members using Multiple-vaults.
+  * ♦Super easy to use. With a simple yet intuitive design, Enpass delivers you a one-of-a-kind experience in using the app.
+  * ♦Not just for passwords. Enpass locks your confidential files, photos, and documents in a secure encrypted vault.
+  
+  PREMIUM SUPPORT
+  We here at Enpass are continuously seeking to give you the best experience. A dedicated support team is active to resolve your queries through email, our forums and social channels. Feel free to reach out to us at
+  * Email- support@enpass.io
+  * Twitter- @EnpassApp
+  * Facebook- facebook.com/EnpassApp
+  * Forums- https://discussion.enpass.io.
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
