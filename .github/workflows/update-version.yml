@@ -36,7 +36,7 @@ jobs:
             repo-name: enpass
             
       # Check and print version
-      - name: Run a multi-line script
+      - name: Update file if needed
         run: |
           # Find the latest version by getting the first option in the search and removing everything around the number
           latest=$( apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g' )
@@ -45,3 +45,15 @@ jobs:
           # Find the current snapcraft version by looking at the file and removing the fluff
           current=$( grep -m1 version: snap/snapcraft.yaml | sed -e 's/version: //g' | tr -d "'" )
           echo The current version of Enpass used in snapcraft.yaml is $current. 
+          
+          if [ "$current" = "$latest" ]; then
+              echo "Current version is up to date!"
+          else
+              echo "Current version is different! Changing..."
+              sed 's/$current/$latest/g' snap/snapcraft.yaml
+              
+              git config --global user.name 'Christos Miniotis'
+              git config --global user.email 'chrismin13@users.noreply.github.com'
+              git commit -am "Automatically updated to $latest"
+              git push
+          fi
