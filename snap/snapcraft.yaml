@@ -85,6 +85,6 @@ parts:
       sed -i 's|Icon=.*|Icon=${SNAP}/meta/gui/enpass.svg|g' $SNAPCRAFT_PRIME/usr/share/applications/enpass.desktop
   snap-gui-folder:
     plugin: dump
-    source: gui/
+    source: icons/
     organize:
       enpass.svg: meta/gui/
