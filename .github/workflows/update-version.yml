@@ -16,6 +16,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Add key
+        run: |
+          wget -O - https://apt.enpass.io/keys/enpass-linux.key | $sudocmd apt-key add - 
         
       # https://github.com/marketplace/actions/add-debian-repository
       - name: Add debian repository
