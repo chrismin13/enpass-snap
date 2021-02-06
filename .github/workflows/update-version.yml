@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # This is cron POSIX syntax and runs every 30 minutes
+    - cron:  '*/30 * * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        
+      # https://github.com/marketplace/actions/add-debian-repository
+      - name: Add debian repository
+        uses: myci-actions/add-deb-repo@4
+        with:
+            repo: deb https://apt.enpass.io/ stable main
+            repo-name: enpass
+            
+      # Check and print version
+      - name: Run a multi-line script
+        run: |
+          echo Test
+          apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g'
