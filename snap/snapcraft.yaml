@@ -1,6 +1,6 @@
 name: enpass-chrismin13-test
 base: core18
-version: '6.5.1.723'
+version: '6.6.0.775'
 summary: Offline Password Manager and Secure Vault.
 description: |
   Our everyday life is filled with too many passwords and various types of credentials, right? So, what are you doing to manage it?
