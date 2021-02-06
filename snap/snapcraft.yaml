@@ -1,17 +1,17 @@
 name: enpass
 base: core18
 version: '6.5.1.723'
-summary: Unofficial Snap for the Enpass Password Manager
-description: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details. Free for Mac, Windows and Linux.
+summary: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details.
+description: Offline Password Manager and Secure Vault. Saves and fill in all your passwords, cards and other details.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: classic # use 'strict' once you have the right plugs and slots
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
   enpass:
     command: opt/enpass/Enpass
     desktop: usr/share/applications/enpass.desktop
-#    extensions: [gnome-3-34]
+    extensions: [gnome-3-34]
     plugs:
       - home
       - audio-playback
