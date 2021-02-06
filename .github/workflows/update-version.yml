@@ -50,7 +50,8 @@ jobs:
               echo "Current version is up to date!"
           else
               echo "Current version is different! Changing..."
-              sed 's/$current/$latest/g' snap/snapcraft.yaml
+              sed 's/$current/$latest/g' snap/snapcraft.yaml > changed.txt 
+              mv changed.txt snap/snapcraft.yaml
               
               git config --global user.name 'Christos Miniotis'
               git config --global user.email 'chrismin13@users.noreply.github.com'
