@@ -19,6 +19,13 @@ jobs:
       
       - name: Add key
         run: |
+          if [ "$(id --user)" -eq "0" ]; then
+            sudocmd=""
+          else
+            sudocmd="sudo"
+          fi
+            
+          
           $sudocmd apt-key adv --fetch-keys https://apt.enpass.io/keys/enpass-linux.key
         
       # https://github.com/marketplace/actions/add-debian-repository
