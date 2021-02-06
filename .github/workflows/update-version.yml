@@ -38,6 +38,10 @@ jobs:
       # Check and print version
       - name: Run a multi-line script
         run: |
+          # Find the latest version by getting the first option in the search and removing everything around the number
           latest=$( apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g' )
-          echo The latest Enpass version on the Debian Repository is $latest
-          ls
+          echo The latest Enpass version on the Debian Repository is $latest.
+          
+          # Find the current snapcraft version by looking at the file and removing the fluff
+          current=$( grep -m1 version: snap/snapcraft.yaml | sed -e 's/version: //g' | tr -d "'" )
+          echo The current version of Enpass used in snapcraft.yaml is $current. 
