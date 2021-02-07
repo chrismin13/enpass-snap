@@ -21,11 +21,7 @@ distributions.</p>
 
 ## Install
 
-    git clone https://github.com/chrismin13/enpass-snap.git # Clone the repo
-    cd enpass-snap/snap/ # Enter the build directory
-    sudo snap install snapcraft # If you don't already have snapcraft installed
-    snapcraft # Build
-    sudo snap install --dangerous --classic enpass_VERSION_NUMBER_amd64.snap
+    sudo snap install enpass-chrismin13-test --edge # Waiting to get the enpass name, this is temporary
 
 <!-- Uncomment and modify this when your snap is available on the store
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/my-snap-name)
