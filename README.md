@@ -27,9 +27,9 @@ distributions.</p>
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
-## Remaining tasks
-<!-- Uncomment and modify this when you have a screenshot
 ![enpass](screenshot.png?raw=true "enpass")
+
+## Remaining tasks
 
 Snapcrafters ([join us](https://forum.snapcraft.io/t/join-snapcrafters/1325)) 
 are working to land snap install documentation and
