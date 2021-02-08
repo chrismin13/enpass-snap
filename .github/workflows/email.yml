@@ -33,7 +33,7 @@ jobs:
        password: ${{secrets.MAIL_PASSWORD}}
        subject: Enpass Snap has been automatically updated
        # Literal body:
-       body: New version of enpass found! Go check if it works and push to stable.
+       body: New version of enpass found! Go check if it works and push to stable. https://github.com/chrismin13/enpass-snap
        to: ${{secrets.MAIL_USERNAME}}
        from: ${{secrets.MAIL_USERNAME}}
        convert_markdown: true
