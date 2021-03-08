@@ -19,6 +19,8 @@ apps:
       - network
       - unity7
       - network-bind
+      - network-observe # Necessary for communication
+      - system-observe #  with the browser extension
 
 architectures:
   - build-on: amd64
