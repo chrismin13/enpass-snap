@@ -29,7 +29,7 @@ architectures:
 parts:
   enpass-deb:
     plugin: dump
-    source: "https://apt.enpass.io/pool/main/e/enpass/enpass_$SNAPCRAFT_PROJECT_VERSION_amd64.deb"
+    source: "https://dl.enpass.io/beta/linux/setup/6.6.0.22/enpass_6.6.0.22_amd64.deb"
     source-type: deb
     stage-packages:
       - libxss1
