@@ -10,6 +10,13 @@ distributions.</p>
 
 <p align="center">Published for <img src="https://raw.githubusercontent.com/anythingcodes/slack-emoji-for-techies/gh-pages/emoji/tux.png" align="top" width="24" /> with 💝 by Snapcrafters</p>
 
+<a href="https://snapcraft.io/enpass">
+  <img alt="enpass" src="https://snapcraft.io/enpass/badge.svg" />
+</a>
+<a href="https://snapcraft.io/enpass">
+  <img alt="enpass" src="https://snapcraft.io/enpass/trending.svg?name=0" />
+</a>
+
 ## Install
 
     sudo snap install enpass
