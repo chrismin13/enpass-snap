@@ -11,6 +11,8 @@ confinement: strict # use 'strict' once you have the right plugs and slots
 apps:
   enpass:
     command: opt/enpass/Enpass
+    environment:
+        DISABLE_WAYLAND: 1
     desktop: usr/share/applications/enpass.desktop
     extensions: [gnome-3-34]
     plugs:
