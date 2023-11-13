@@ -1,6 +1,6 @@
 name: enpass
 base: core18
-version: '6.7.4.933'
+version: '6.9.1.1511'
 summary: Offline Password Manager and Secure Vault.
 description: |
   Use Enpass to securely organize everything at one place. 
