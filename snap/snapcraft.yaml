@@ -1,6 +1,6 @@
 name: enpass
 base: core24
-version: '6.11.12'
+version: '6.11.12.1953'
 summary: Offline Password Manager and Secure Vault.
 description: |
   Use Enpass to securely organize everything at one place. 
