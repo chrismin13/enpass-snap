@@ -2,8 +2,8 @@ name: CI
 
 on:
   schedule:
-    # Runs every 30 minutes
-    - cron: '*/30 * * * *'
+    # Runs daily at 9 AM UTC
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
