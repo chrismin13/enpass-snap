@@ -20,3 +20,13 @@ jobs:
         with:
           name: enpass-snap
           path: ${{ steps.snapcraft.outputs.snap }}
+      
+      # Publish to edge channel on push to master (not on PRs)
+      - name: Publish to Snap Store (edge)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        with:
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: edge
