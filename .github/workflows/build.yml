@@ -1,0 +1,32 @@
+name: Build Snap
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: snapcore/action-build@v1
+        id: snapcraft
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: enpass-snap
+          path: ${{ steps.snapcraft.outputs.snap }}
+      
+      # Publish to edge channel on push to master (not on PRs)
+      - name: Publish to Snap Store (edge)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        with:
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: edge

@@ -1,12 +1,15 @@
 name: enpass
-base: core18
-version: '6.9.1.1511'
+base: core24
+version: '6.11.12.1953'
 summary: Offline Password Manager and Secure Vault.
 description: |
   Use Enpass to securely organize everything at one place. 
 
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict
+
+platforms:
+  amd64:
 
 apps:
   enpass:
@@ -14,19 +17,15 @@ apps:
     environment:
         DISABLE_WAYLAND: 1
     desktop: usr/share/applications/enpass.desktop
-    extensions: [gnome-3-34]
+    extensions: [gnome]
     plugs:
       - home
       - audio-playback
       - network
       - unity7
       - network-bind
-      - network-observe # Necessary for communication
-      - system-observe #  with the browser extension
-
-architectures:
-  - build-on: amd64
-    run-on: amd64
+      - network-observe
+      - system-observe
 
 parts:
   enpass-deb:
@@ -35,9 +34,8 @@ parts:
     source-type: deb
     stage-packages:
       - libxss1
-      - libxkbcommon-x11-0
     override-prime: |
-      snapcraftctl prime
+      craftctl default
       sed -i 's|Icon=.*|Icon=${SNAP}/meta/gui/enpass.svg|g' $SNAPCRAFT_PRIME/usr/share/applications/enpass.desktop
   snap-gui-folder:
     plugin: dump

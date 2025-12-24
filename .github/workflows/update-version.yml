@@ -2,11 +2,8 @@ name: CI
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    # This is cron POSIX syntax and runs every 30 minutes
-    - cron:  '*/30 * * * *'
-
-  # Allows you to run this workflow manually from the Actions tab
+    # Runs daily at 9 AM UTC
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 jobs:
@@ -14,44 +11,30 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
-      - name: Add key
-        run: |
-          if [ "$(id --user)" -eq "0" ]; then
-            sudocmd=""
-          else
-            sudocmd="sudo"
-          fi
-            
-          
-          $sudocmd apt-key adv --fetch-keys https://apt.enpass.io/keys/enpass-linux.key
-        
-      # https://github.com/marketplace/actions/add-debian-repository
-      - name: Add debian repository
-        uses: myci-actions/add-deb-repo@4
+      - name: Add Enpass repository
+        uses: myci-actions/add-deb-repo@11
         with:
-            repo: deb https://apt.enpass.io/ stable main
-            repo-name: enpass
+          repo: deb https://apt.enpass.io/ stable main
+          repo-name: enpass
+          keys-asc: https://apt.enpass.io/keys/enpass-linux.key
             
-      # Check and print version
       - name: Update file if needed
         run: |
-          # Find the latest version by getting the first option in the search and removing everything around the number
+          # Find the latest version from the Enpass repository
           latest=$( apt-cache show enpass | grep -m1 Version: | sed -e 's/Version: //g' )
-          echo The latest Enpass version on the Debian Repository is $latest.
+          echo "The latest Enpass version is $latest"
           
-          # Find the current snapcraft version by looking at the file and removing the fluff
-          current=$( grep -m1 version: snap/snapcraft.yaml | sed -e 's/version: //g' | tr -d "'" )
-          echo The current version of Enpass used in snapcraft.yaml is $current. 
+          # Find the current version in snapcraft.yaml
+          current=$( grep -m1 version: snap/snapcraft.yaml | sed -e "s/version: //g" | tr -d "'" )
+          echo "The current snapcraft version is $current"
           
           if [ "$current" = "$latest" ]; then
               echo "Current version is up to date!"
           else
-              echo "Current version is different! Changing..."
-              sed "s/$current/$latest/g" snap/snapcraft.yaml > changed.txt 
-              mv changed.txt snap/snapcraft.yaml
+              echo "Updating from $current to $latest"
+              sed -i "s/$current/$latest/g" snap/snapcraft.yaml
               
               git config --global user.name 'Christos Miniotis'
               git config --global user.email 'chrismin13@users.noreply.github.com'
